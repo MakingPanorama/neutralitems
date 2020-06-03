@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+  "item_magic_lamp"
+    {
+    	"ID"	"1365"
+    	"BaseClass"             		"item_datadriven"
+    	"AbilityTextureName"			"item_panic_button"
+    	
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"AbilityCooldown"				"75.0"   	
+    	
+    	"ItemCost"						"0"
+    	"ItemKillable"					"1"
+    	"ItemSellable"					"0"
+    	"ItemPurchasable"				"1"
+    	"ItemDroppable"					"1"
+    	"ItemPermanent"					"1"
+
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"bonus_health"			"400"
+    		}
+    		"02"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"heal"		"300"
+    		}
+    		"03"
+    		{
+    			"var_type"			"FIELD_INTEGER"
+    			"health_threshold"	"20"
+    		}
+    	}
+
+    	"Modifiers"
+    	{
+    		"modifier_magic_lamp_passive"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"IsDebuff"			"0"
+    	
+    			"OnTakeDamage"
+    			{
+    				"RunScript"
+    				{
+    					"ScriptFile"	"item_abilities/item_magic_lamp.lua"
+    					"attack_damage"	"%attack_damage"
+    					"Function"		"MagicLamp"
+    				}	
+    			}
+    		}
+    		"modifier_magic_lamp_stat"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_HEALTH_BONUS" "%bonus_health"
+    			}
+    		}
+    	}
+    }
+}
